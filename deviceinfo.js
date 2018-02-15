@@ -44,9 +44,6 @@ module.exports = {
   getBundleId: function() {
     return RNDeviceInfo.bundleId;
   },
-  getApplicationName: function() {
-    return RNDeviceInfo.appName;
-  },
   getBuildNumber: function() {
     return RNDeviceInfo.buildNumber;
   },
@@ -68,14 +65,8 @@ module.exports = {
   getDeviceCountry: function() {
     return RNDeviceInfo.deviceCountry;
   },
-  getFirstDayOfWeek: function() {
-    return RNDeviceInfo.firstDayOfWeek;
-  },
   getTimezone: function() {
     return RNDeviceInfo.timezone;
-  },
-  getFontScale: function() {
-    return RNDeviceInfo.fontScale;
   },
   isEmulator: function() {
     return RNDeviceInfo.isEmulator;
@@ -86,7 +77,7 @@ module.exports = {
   is24Hour: function() {
     return RNDeviceInfo.is24Hour;
   },
-  isPinOrFingerprintSet: function() {
+  isPinOrFingerprintSet: function () {
     return RNDeviceInfo.isPinOrFingerprintSet;
   },
   getFirstInstallTime: function() {
@@ -101,16 +92,7 @@ module.exports = {
   getCarrier: function() {
     return RNDeviceInfo.carrier;
   },
-  getTotalMemory: function() {
-    return RNDeviceInfo.totalMemory;
+  getFirstDayOfWeek: function() {
+    return RNDeviceInfo.firstDayOfWeek;
   },
-  getMaxMemory: function() {
-    return RNDeviceInfo.maxMemory;
-  },
-  getTotalDiskCapacity: function () {
-    return RNDeviceInfo.totalDiskCapacity;
-  },
-  getFreeDiskStorage: function () {
-    return RNDeviceInfo.freeDiskStorage;
-  }
 };

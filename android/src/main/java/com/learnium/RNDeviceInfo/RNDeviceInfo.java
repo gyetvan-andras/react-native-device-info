@@ -13,7 +13,8 @@ import java.util.List;
 public class RNDeviceInfo implements ReactPackage {
 
   @Override
-  public List<NativeModule> createNativeModules(ReactApplicationContext reactContext) {
+  public List<NativeModule> createNativeModules(
+		ReactApplicationContext reactContext) {
     List<NativeModule> modules = new ArrayList<>();
 
     modules.add(new RNDeviceModule(reactContext));
@@ -23,13 +24,13 @@ public class RNDeviceInfo implements ReactPackage {
 
   // Deprecated RN 0.47
   public List<Class<? extends JavaScriptModule>> createJSModules() {
-    return Collections.emptyList();
+  	return Collections.emptyList();
   }
 
   @Override
   public List<ViewManager> createViewManagers(
-      ReactApplicationContext reactContext) {
-    return Collections.emptyList();
+		ReactApplicationContext reactContext) {
+  	return Collections.emptyList();
   }
 
 }
