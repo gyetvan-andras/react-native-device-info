@@ -95,7 +95,7 @@ public class RNDeviceModule extends ReactContextBaseJavaModule {
     return android.text.format.DateFormat.is24HourFormat(this.reactContext.getApplicationContext());
   }
 
-  private Integer getFirstDayOfMonth() {
+  private Integer getFirstDayOfWeek() {
 		// Locale lc = Locale.getDefault();
     Locale current = getReactApplicationContext().getResources().getConfiguration().locale;
 		Calendar cal = Calendar.getInstance(current);
@@ -124,7 +124,7 @@ public class RNDeviceModule extends ReactContextBaseJavaModule {
 			ret = 0;
 			break;
 		}
-		return new Integer(ret)
+		return new Integer(ret);
   }
 
 
