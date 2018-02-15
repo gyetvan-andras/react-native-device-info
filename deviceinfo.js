@@ -68,6 +68,9 @@ module.exports = {
   getDeviceCountry: function() {
     return RNDeviceInfo.deviceCountry;
   },
+  getFirstDayOfWeek: function() {
+    return RNDeviceInfo.firstDayOfWeek;
+  },
   getTimezone: function() {
     return RNDeviceInfo.timezone;
   },

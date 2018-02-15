@@ -27,6 +27,7 @@ import com.facebook.react.bridge.Promise;
 
 import java.util.HashMap;
 import java.util.Locale;
+import java.util.Calendar;
 import java.util.Map;
 import java.util.TimeZone;
 import java.lang.Runtime;
@@ -76,6 +77,38 @@ public class RNDeviceModule extends ReactContextBaseJavaModule {
   private String getCurrentCountry() {
     Locale current = getReactApplicationContext().getResources().getConfiguration().locale;
     return current.getCountry();
+  }
+
+  private int getFirstDayOfMonth() {
+		// Locale lc = Locale.getDefault();
+    Locale current = getReactApplicationContext().getResources().getConfiguration().locale;
+		Calendar cal = Calendar.getInstance(current);
+		int fdow = cal.getFirstDayOfWeek();
+		int ret = 0;
+		switch(fdow) {
+		case Calendar.MONDAY:
+			ret = 1;
+			break;
+		case Calendar.TUESDAY:
+			ret = 2;
+			break;
+		case Calendar.WEDNESDAY:
+			ret = 3;
+			break;
+		case Calendar.THURSDAY:
+			ret = 4;
+			break;
+		case Calendar.FRIDAY:
+			ret = 5;
+			break;
+		case Calendar.SATURDAY:
+			ret = 6;
+			break;
+		case Calendar.SUNDAY:
+			ret = 0;
+			break;
+		}
+		return ret
   }
 
   private Boolean isEmulator() {
@@ -207,6 +240,7 @@ public class RNDeviceModule extends ReactContextBaseJavaModule {
     constants.put("apiLevel", Build.VERSION.SDK_INT);
     constants.put("deviceLocale", this.getCurrentLanguage());
     constants.put("deviceCountry", this.getCurrentCountry());
+    constants.put("firstDayOfWeek", this.getFirstDayOfWeek());
     constants.put("uniqueId", Secure.getString(this.reactContext.getContentResolver(), Secure.ANDROID_ID));
     constants.put("systemManufacturer", Build.MANUFACTURER);
     constants.put("bundleId", packageName);

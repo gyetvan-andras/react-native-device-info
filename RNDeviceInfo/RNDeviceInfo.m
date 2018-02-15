@@ -222,6 +222,11 @@ RCT_EXPORT_MODULE(RNDeviceInfo)
   return [NSNumber numberWithFloat: fontScale];
 }
 
+- (NSNumber*) firstDayOfWeek {
+	NSCalendar *cal = [NSCalendar currentCalendar];
+	return [NSNumber numberWithUnsignedInteger: (cal.firstWeekday - 1)];
+}
+
 - (bool) is24Hour
 {
     NSString *format = [NSDateFormatter dateFormatFromTemplate:@"j" options:0 locale:[NSLocale currentLocale]];
@@ -274,6 +279,7 @@ RCT_EXPORT_MODULE(RNDeviceInfo)
              @"deviceName": currentDevice.name,
              @"deviceLocale": self.deviceLocale,
              @"deviceCountry": self.deviceCountry ?: [NSNull null],
+             @"firstDayOfWeek": self.firstDayOfWeek,
              @"uniqueId": uniqueId,
              @"appName": [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleDisplayName"],
              @"bundleId": [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleIdentifier"],
